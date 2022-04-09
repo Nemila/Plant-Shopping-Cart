@@ -11,15 +11,6 @@
         width: 100%;
         object-fit: cover;
     }
-    .care-container {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        .care-box {
-            display: flex;
-            gap: 5px;
-        }
-    }
     .addBtn {
         @include btn($cartBg, white);
     }

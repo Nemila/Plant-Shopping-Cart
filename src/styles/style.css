@@ -188,23 +188,6 @@ body {
      object-fit: cover;
 }
 
-.plantItem .care-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.plantItem .care-container .care-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 5px;
-}
-
 .plantItem .addBtn {
   display: -webkit-box;
   display: -ms-flexbox;
