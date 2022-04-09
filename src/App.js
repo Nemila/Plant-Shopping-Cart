@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// Components
+import React, { useState } from "react";
+import Banner from "./components/Banner";
+import Cart from "./components/Cart";
+import ShoppingList from "./components/ShoppingList";
 
 function App() {
+  let [cart, setCart] = useState([]);
+
+  let addToCart = (plant) => {
+    let alreadyExist = cart.find((item) => item.name === plant.name);
+    if (alreadyExist) {
+      let newQuantity = alreadyExist.quantity + 1;
+      let newList = cart.filter((item) => item.name !== plant.name);
+      setCart([{ ...alreadyExist, quantity: newQuantity }, ...newList]);
+    } else {
+      setCart([{ ...plant, quantity: 1 }, ...cart]);
+    }
+  };
+
+  let resetCart = () => {
+    setCart([]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Banner />
+      <div className="app-body">
+        <Cart cart={cart} resetCart={resetCart} />
+        <ShoppingList addToCart={addToCart} />
+      </div>
     </div>
   );
 }
