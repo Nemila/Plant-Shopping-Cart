@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import logoImg from "../../assets/logo.svg";
 
+import { HiMenuAlt3 } from "react-icons/hi";
+
 const bannerVariants = {
   initial: {
     y: -100,
@@ -35,23 +37,29 @@ const logoVariants = {
   },
 };
 
-export default function Banner() {
+export default function Banner({ toggleCart }) {
   return (
     <motion.div
-      className="banner"
+      className="w-full h-14 shadow-md z-50"
       variants={bannerVariants}
       initial="initial"
       animate="animate"
     >
-      <div className="wrapper">
+      <div className="container h-full mx-auto flex justify-between items-center px-4">
         <motion.img
           src={logoImg}
-          className="banner-logo"
-          alt="Plant logo"
+          className="w-10"
+          alt=""
           variants={logoVariants}
-          whileHover={{ rotate: 360 }}
+          whileHover={{ rotate: -45 }}
         />
-        <h3>La Maison Jungle</h3>
+        <h3 className="font-bold text-xl font-[Poppins]">La Maison Jungle</h3>
+        <button
+          className="text-2xl outline-none md:hidden focus-visible:ring-2 ring-primary rounded-sm"
+          onClick={toggleCart}
+        >
+          <HiMenuAlt3 />
+        </button>
       </div>
     </motion.div>
   );

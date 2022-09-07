@@ -6,6 +6,8 @@ import ShoppingList from "./components/ShoppingList";
 
 function App() {
   let [cart, setCart] = useState([]);
+  let [cartOpened, setCartOpened] = useState(false);
+  const toggleCart = () => setCartOpened((prev) => !prev);
 
   let addToCart = (plant) => {
     let alreadyExist = cart.find((item) => item.name === plant.name);
@@ -18,16 +20,22 @@ function App() {
     }
   };
 
-  let resetCart = () => {
-    setCart([]);
-  };
+  let resetCart = () => setCart([]);
 
   return (
-    <div className="app">
-      <Banner />
-      <div className="app-body">
-        <Cart cart={cart} resetCart={resetCart} />
-        <ShoppingList addToCart={addToCart} />
+    <div className="flex flex-col min-h-screen">
+      <Banner toggleCart={toggleCart} />
+      <div className="flex flex-grow">
+        <Cart
+          cart={cart}
+          resetCart={resetCart}
+          cartOpened={cartOpened}
+          toggleCart={toggleCart}
+        />
+        <div>
+          <ShoppingList addToCart={addToCart} />
+          <ShoppingList addToCart={addToCart} />
+        </div>
       </div>
     </div>
   );
