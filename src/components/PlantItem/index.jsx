@@ -4,7 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 
 export default function PlantItem({ plant, addToCart }) {
   return (
-    <motion.div className="relative max-w-[325px] rounded-md overflow-hidden bg-white transition-all group cursor-pointer hover:shadow-md">
+    <motion.div className="relative max-w-[325px] h-max rounded-md overflow-hidden bg-white transition-all group cursor-pointer hover:shadow-md">
       <div className="w-full aspect-video overflow-hidden">
         <img
           className="w-full h-full object-cover object-center transition-all group-hover:scale-110"
